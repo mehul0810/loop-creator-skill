@@ -41,14 +41,14 @@ The hot path stays in `SKILL.md`. Detailed guidance loads selectively from `refe
 
 Clone the repository, then point each filesystem-based agent at the same skill directory.
 
-### Codex
+### ChatGPT desktop app and Codex
 
 ```bash
-mkdir -p ~/.codex/skills
-ln -s "/absolute/path/to/loop-creator-skill/loop-creator" ~/.codex/skills/loop-creator
+mkdir -p ~/.agents/skills
+ln -s "/absolute/path/to/loop-creator-skill/loop-creator" ~/.agents/skills/loop-creator
 ```
 
-Restart Codex if the skill does not appear in an existing session.
+Current Codex versions discover personal skills from `~/.agents/skills/` and support symlinked skill directories. In the ChatGPT desktop app, open **Skills** in the sidebar to find local skills. Restart the app if a newly installed skill does not appear.
 
 ### Claude Code
 
@@ -59,9 +59,9 @@ ln -s "/absolute/path/to/loop-creator-skill/loop-creator" ~/.claude/skills/loop-
 
 Claude Code supports personal skills under `~/.claude/skills/` and watches existing skill directories for changes.
 
-### ChatGPT
+### ChatGPT web and workspace installation
 
-ChatGPT custom skills are installed through the ChatGPT interface and do not currently sync from Codex or a local filesystem directory.
+ChatGPT web/workspace custom skills are installed through the ChatGPT interface and do not currently sync from the local Codex installation.
 
 1. Create a ZIP archive whose top-level directory is `loop-creator/`.
 2. In ChatGPT, open profile → **Skills** → **New skill** → **Upload from your computer**.

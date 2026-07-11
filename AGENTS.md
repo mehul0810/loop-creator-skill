@@ -50,5 +50,5 @@ Also verify:
 
 - Commit only the intended repository files.
 - Do not push, tag, publish a release, or alter installation symlinks unless the user explicitly asks.
-- Treat the local Codex and Claude skill installations as symlinks to `loop-creator/`; do not copy divergent versions into those directories.
-- ChatGPT custom skills are uploaded through the product UI and do not currently have a supported local symlink installation path.
+- Treat the ChatGPT desktop/Codex installation at `~/.agents/skills/loop-creator` and the Claude installation at `~/.claude/skills/loop-creator` as symlinks to `loop-creator/`; do not copy divergent versions into those directories.
+- ChatGPT web/workspace skills are uploaded through the product UI and do not currently sync from the local filesystem installation.
