@@ -1,0 +1,17 @@
+# Loop run — [YYYY-MM-DD HH:MM TZ]
+
+- **Loop / item:** [name and stable identifier]
+- **Trigger / freshness:** [signal and when it was checked]
+- **Intent:** [one-sentence outcome]
+- **Action:** [bounded work performed]
+- **Evidence:** [command output, artifact link, state check, or review result]
+- **Limits used:** [iterations, time, tokens/cost if tracked]
+- **Model / reasoning:** [route, model, reasoning level, escalation if any]
+- **Cadence decision:** [next class/trigger/time and reason]
+- **Autonomy / approvals:** [routine actions completed automatically; approval gate reached or `none`]
+- **Status:** `succeeded` | `no-op` | `blocked` | `failed` | `escalated`
+- **Decision / next action:** [specific owner or next run action]
+
+## Notes for the next run
+
+[Only durable facts, changed assumptions, or a precise unresolved question.]

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Loop Creator"
+  short_description: "Design adaptive business AI operating loops"
+  default_prompt: "Use $loop-creator to interview me about my business and design a token-efficient autonomous loop with adaptive cadence, model routing, and critical approval gates."

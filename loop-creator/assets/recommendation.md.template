@@ -1,0 +1,68 @@
+# Loop recommendation — [workflow]
+
+## Understood workflow
+
+- **Business / topology:** [solopreneur, one product, portfolio, function, or organization]
+- **Business model / value flow:** [how value and revenue or internal impact are created]
+- **Products / functions / owners:** [bounded operating units and decision owners]
+- **Outcome:** [observable result]
+- **Representative input/output:** [example]
+- **Cadence and volume:** [manual/event/schedule and expected volume]
+- **User taste:** [initiative, change size, quality, communication, parallelism, cost]
+- **Assumptions:** [only material assumptions]
+
+## Tool and freshness evidence
+
+- **Tool / surface:** [app, CLI, IDE, API, or hosted agent]
+- **Installed version / model:** [observed value]
+- **Mode / isolation:** [permissions, sandbox, worktree, container, or remote]
+- **Research date:** [YYYY-MM-DD]
+- **Current compatibility:** [works now, configuration needed, or upgrade decision]
+- **Sources:** [official docs/release notes and labeled secondary evidence]
+
+## Primary recommendation
+
+- **Loop hierarchy:** [owner console/governance, portfolio/product, functional, and execution loops as needed]
+- **Pattern:** [event, scheduled, evaluator-refiner, builder, escalation, or hybrid]
+- **Trigger:** [one trusted signal]
+- **Autonomous path:** [routine steps that proceed without interruption]
+- **Verifier:** [checks that can reject]
+- **State:** [durable, reviewable location]
+- **Stop rule:** [success, no-op, no-progress, failure, budget, or escalation]
+
+## Dynamic cadence
+
+- **Initial class / trigger:** [event, hot, active, routine, cool, or paused]
+- **Accelerate when:** [business signals]
+- **Cool or pause when:** [no-change, empty queue, blocked dependency, or exhausted budget]
+- **Quiet hours / notifications:** [owner-attention policy]
+- **Portfolio WIP / concurrency:** [if applicable]
+
+## Model, reasoning, and token policy
+
+- **Route table:** [probe, routine, standard, deep, critical mapped to current supported models]
+- **Reasoning depth:** [routing rule]
+- **Escalation / fallback:** [verified conditions and maximum chain]
+- **Context bundle:** [contract, active item, source slices, concise state, policy]
+- **Budgets:** [per attempt, run, product, period, and portfolio reserve]
+- **Efficiency evidence:** [tokens/credits, latency, retries, verifier result, and baseline]
+
+## Autonomy and authority
+
+- **Target:** [approximately 90–95% of routine steps, with definition]
+- **Automatic:** [reversible in-scope actions]
+- **Approval required:** [critical/destructive/external actions]
+- **Prohibited:** [actions the loop must never attempt]
+- **Approval delivery:** [who, where, packet contents, timeout behavior]
+- **Kill switch:** [how the owner stops future or current execution]
+
+## Pilot and rollout
+
+1. [Run one representative item in isolation or preview.]
+2. [Test success, no-op, verifier failure, and approval gate.]
+3. [Review evidence, cost, interruptions, and rework.]
+4. [Enable the next autonomy level only if the gates held.]
+
+## Alternative
+
+[One materially different option, its benefit, and why it is not primary.]

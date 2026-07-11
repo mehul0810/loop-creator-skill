@@ -1,0 +1,94 @@
+# [Loop name]
+
+## Purpose
+
+- **Outcome:** [Observable user or system result]
+- **Owner:** [Person or team that can accept risk and resolve escalation]
+- **Maturity:** `pilot` | `review-only` | `automated`
+- **Autonomy target:** [Approximately 90–95% of routine steps, or another explicit target]
+- **User taste:** [Initiative, change size, quality, communication, parallelism, and cost posture]
+
+## Business context
+
+- **Business / topology:** [Solopreneur, product, portfolio, function, or organization]
+- **Value flow:** [Customer/business outcome and revenue or internal impact]
+- **Product / function owner:** [Decision owner]
+- **Shared constraints:** [Capacity, budget, dependency, policy, release, or service-level constraints]
+- **Parent / child loops:** [Routing and escalation relationships, if any]
+
+## Tool profile
+
+- **Tool / surface / version:** [Observed app, CLI, IDE, API, or hosted agent version]
+- **Model / mode:** [Model selection and approval/permission mode]
+- **Isolation:** [Sandbox, worktree, container, remote environment, or none]
+- **Current research:** [Date and official documentation/release links]
+- **Compatibility:** [Works now, configuration needed, or upgrade decision]
+
+## Trigger and input
+
+- **Signal:** [One source of work, such as a failed CI job, review comment, or scheduled report]
+- **Eligibility:** [Conditions that make an item safe and useful to process]
+- **Freshness check:** [What must be re-read at the beginning of every run]
+- **Unit of work:** [Exactly one bounded item per run]
+
+## Context and scope
+
+- **Source of truth:** [Files, systems, and commands]
+- **May read:** [Paths/systems]
+- **May change:** [Paths/systems and maximum change size]
+- **Must not:** [Forbidden actions, paths, secrets, or external writes]
+- **Required preflight:** [Repository status, environment check, or equivalent]
+
+## Execution
+
+1. [Discover and confirm the item.]
+2. [Gather only the relevant context.]
+3. [Make a bounded proposal or change.]
+4. [Run verification.]
+5. [Record evidence and choose the exit state.]
+
+## Dynamic cadence
+
+- **Initial class / trigger:** [Event, hot, active, routine, cool, or paused]
+- **Accelerate:** [Conditions]
+- **Cool / pause:** [Conditions]
+- **Next-run record:** [Class, trigger/time, reason, no-change streak, budget remaining]
+
+## Model and token routing
+
+- **Route:** [Probe, routine, standard, deep, or critical]
+- **Model / reasoning:** [Current version-supported selection rule]
+- **Context bundle:** [Only required instructions, active item, source slices, state, and policy]
+- **Escalation / fallback:** [Conditions and maximum attempts]
+- **Token/cost budget:** [Per attempt/run/product/period]
+
+## Verification
+
+- **Required checks:** [Commands, state checks, or acceptance tests]
+- **Quality review:** [Rubric, reviewer, or human approval when deterministic checks are insufficient]
+- **Reject shortcuts:** [Examples: skipped checks, deleted tests, unrelated edits, stale input]
+- **Passing condition:** [Exact evidence needed]
+
+## State and observability
+
+- **State location:** [Tracked file, issue, database, or system record]
+- **Run note location:** [Where concise per-run evidence goes]
+- **Record:** item identifier, input freshness, action, evidence, status, decision, next action
+
+## Limits and exits
+
+- **Iteration cap:** [Number]
+- **Time/token/cost cap:** [Limit or `not measured`]
+- **Success:** [Passing condition and allowed handoff]
+- **No-op:** [When nothing needs action]
+- **Blocked:** [Missing input, ambiguity, access, or external dependency]
+- **Failed:** [Verifier failure after allowed remediation]
+- **Escalate:** [Owner and precise decision required]
+
+## Authority
+
+- **Automatic:** [Read-only or reversible actions]
+- **Require approval:** [Critical, destructive, irreversible, externally visible, sensitive, expensive, or authority-expanding actions]
+- **Never automatic:** [Explicitly prohibited actions]
+- **Approval packet:** [Owner, delivery surface, evidence, rollback, alternatives, and timeout behavior]
+- **Kill switch:** [How the owner stops execution or recurrence]

@@ -1,0 +1,7 @@
+Use the loop contract at [path]. Run exactly one eligible item in `pilot` / `review-only` mode.
+
+Before acting, refresh the declared signal and read the required source-of-truth material. Select the contract's model route and reasoning depth, then load only its compact context bundle. Stay inside the allowed scope and authority. Continue through routine automatic steps without asking. If an approval-required action is reached, stop before it and produce the contract's approval packet.
+
+Produce the smallest useful result, run every required verifier, and treat verifier evidence as authoritative over your own completion claim. Do not bypass tests, silence errors, or broaden the task merely to make progress.
+
+Write a concise run note to [path] with the item, action, evidence, model/reasoning route, tokens or credits if observable, limits used, next cadence decision, status, and exact next action. Stop with `succeeded`, `no-op`, `blocked`, `failed`, or `escalated` as defined in the contract.
