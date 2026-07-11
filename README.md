@@ -10,6 +10,8 @@ It supports:
 - version-aware model and reasoning routing;
 - per-run, product, period, and portfolio token/cost budgets;
 - independent verification, compact state, stop rules, and human approval packets.
+- a canonical extensible state schema, measurable autonomy, trust boundaries, and loop lifecycle controls;
+- concrete approval/cadence adapters, worked examples, and deterministic contract validation.
 
 ## Repository structure
 
@@ -21,16 +23,27 @@ loop-creator/
 ├── assets/
 │   ├── LOOP.md.template
 │   ├── first-run-prompt.md.template
+│   ├── loop-state.example.json
+│   ├── loop-state.schema.json
 │   ├── recommendation.md.template
 │   └── run-note.md.template
+├── examples/
+│   ├── ci-triage-loop.md
+│   ├── portfolio-loop.md
+│   └── solopreneur-content-loop.md
+├── scripts/
+│   └── validate_loop.py
 └── references/
+    ├── approval-and-cadence-recipes.md
     ├── business-topologies.md
     ├── discovery-interview.md
     ├── dynamic-cadence.md
     ├── model-routing-and-token-efficiency.md
     ├── patterns.md
     ├── research-notes.md
+    ├── security-and-trust.md
     ├── setup-canvas.md
+    ├── state-autonomy-and-lifecycle.md
     ├── tool-version-research.md
     └── verification.md
 ```
@@ -95,6 +108,18 @@ python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/quick_
 ```
 
 The expected result is `Skill is valid!`.
+
+Validate a filled contract and optional JSON state:
+
+```bash
+python3 loop-creator/scripts/validate_loop.py path/to/LOOP.md --state path/to/state.json
+```
+
+Run the repository regression suite:
+
+```bash
+python3 -m unittest discover -s tests -v
+```
 
 ## Contributing
 

@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "loop_id": "ci-diagnosis",
+  "item_id": "run-123-job-test",
+  "updated_at": "2026-07-11T10:00:00+05:30",
+  "maturity": "pilot",
+  "status": "ready",
+  "source": {
+    "trigger": "ci.completed",
+    "freshness_checked_at": "2026-07-11T10:00:00+05:30",
+    "idempotency_key": "run-123-job-test",
+    "pointer": "https://example.invalid/runs/123"
+  },
+  "progress": {
+    "attempt": 0,
+    "failure_fingerprint": null,
+    "last_action": null,
+    "evidence": [],
+    "decision": null,
+    "next_action": "re-fetch the CI run"
+  },
+  "cadence": {
+    "class": "event",
+    "next_run_at_or_trigger": "ci.completed",
+    "reason": "new eligible failure",
+    "no_change_streak": 0,
+    "budget_remaining": 10
+  },
+  "routing": {
+    "route": "routine",
+    "model": null,
+    "reasoning": "low",
+    "attempts": 0,
+    "tokens_or_credits": null,
+    "cost": null
+  },
+  "approval": {
+    "state": "not_required",
+    "request_id": null,
+    "proposal_hash": null,
+    "requested_action": null,
+    "owner": "repository-maintainer",
+    "delivery_surface": "github-issue",
+    "expires_at": null,
+    "decision": null,
+    "decision_actor": null
+  },
+  "safety": {
+    "trust_class": "mixed",
+    "policy_version": "1.0",
+    "kill_switch": "active",
+    "prohibited_action_hits": []
+  },
+  "extensions": {}
+}

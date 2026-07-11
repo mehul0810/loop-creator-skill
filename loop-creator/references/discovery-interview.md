@@ -2,7 +2,11 @@
 
 Interview to understand the business, operating topology, workflow, user taste, and approval boundary before recommending an architecture. Inspect first, ask second, and stop interviewing when the remaining uncertainty would not change the design.
 
-## First question batch
+## Express path
+
+For one bounded workflow with a clear owner and existing work/proof surfaces, inspect first and ask at most three questions: desired outcome, consequential approval boundary, and any business or taste choice that materially changes the design. State inferred defaults for cadence, communication, state, and cost instead of interviewing dimension by dimension. Expand to the full interview only when unresolved topology, authority, risk, or implementation constraints require it.
+
+## Full first question batch
 
 Ask no more than five questions at once:
 

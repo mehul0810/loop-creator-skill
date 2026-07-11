@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/mehul0810/loop-creator-skill/loop-state.schema.json",
+  "title": "Loop Creator State",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "loop_id",
+    "item_id",
+    "updated_at",
+    "maturity",
+    "status",
+    "source",
+    "progress",
+    "cadence",
+    "routing",
+    "approval",
+    "safety",
+    "extensions"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "loop_id": { "type": "string", "minLength": 1 },
+    "item_id": { "type": "string", "minLength": 1 },
+    "updated_at": { "type": "string", "format": "date-time" },
+    "maturity": { "enum": ["pilot", "review-only", "automated"] },
+    "status": { "enum": ["ready", "running", "succeeded", "no-op", "blocked", "failed", "escalated"] },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["trigger", "freshness_checked_at", "idempotency_key", "pointer"],
+      "properties": {
+        "trigger": { "type": "string", "minLength": 1 },
+        "freshness_checked_at": { "type": ["string", "null"], "format": "date-time" },
+        "idempotency_key": { "type": "string", "minLength": 1 },
+        "pointer": { "type": "string", "minLength": 1 }
+      }
+    },
+    "progress": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["attempt", "failure_fingerprint", "last_action", "evidence", "decision", "next_action"],
+      "properties": {
+        "attempt": { "type": "integer", "minimum": 0 },
+        "failure_fingerprint": { "type": ["string", "null"] },
+        "last_action": { "type": ["string", "null"] },
+        "evidence": { "type": "array", "items": { "type": "string" }, "maxItems": 20 },
+        "decision": { "type": ["string", "null"] },
+        "next_action": { "type": "string", "minLength": 1 }
+      }
+    },
+    "cadence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["class", "next_run_at_or_trigger", "reason", "no_change_streak", "budget_remaining"],
+      "properties": {
+        "class": { "enum": ["event", "hot", "active", "routine", "cool", "paused"] },
+        "next_run_at_or_trigger": { "type": ["string", "null"] },
+        "reason": { "type": "string", "minLength": 1 },
+        "no_change_streak": { "type": "integer", "minimum": 0 },
+        "budget_remaining": { "type": ["number", "null"], "minimum": 0 }
+      }
+    },
+    "routing": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["route", "model", "reasoning", "attempts", "tokens_or_credits", "cost"],
+      "properties": {
+        "route": { "enum": ["probe", "routine", "standard", "deep", "critical"] },
+        "model": { "type": ["string", "null"] },
+        "reasoning": { "type": ["string", "null"] },
+        "attempts": { "type": "integer", "minimum": 0 },
+        "tokens_or_credits": { "type": ["number", "null"], "minimum": 0 },
+        "cost": { "type": ["number", "null"], "minimum": 0 }
+      }
+    },
+    "approval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "request_id", "proposal_hash", "requested_action", "owner", "delivery_surface", "expires_at", "decision", "decision_actor"],
+      "properties": {
+        "state": { "enum": ["not_required", "pending", "approved", "denied", "expired", "cancelled"] },
+        "request_id": { "type": ["string", "null"] },
+        "proposal_hash": { "type": ["string", "null"] },
+        "requested_action": { "type": ["string", "null"] },
+        "owner": { "type": ["string", "null"] },
+        "delivery_surface": { "type": ["string", "null"] },
+        "expires_at": { "type": ["string", "null"], "format": "date-time" },
+        "decision": { "type": ["string", "null"] },
+        "decision_actor": { "type": ["string", "null"] }
+      }
+    },
+    "safety": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["trust_class", "policy_version", "kill_switch", "prohibited_action_hits"],
+      "properties": {
+        "trust_class": { "enum": ["instruction-authority", "trusted-data", "untrusted-data", "mixed"] },
+        "policy_version": { "type": "string", "minLength": 1 },
+        "kill_switch": { "enum": ["active", "stopped"] },
+        "prohibited_action_hits": { "type": "array", "items": { "type": "string" }, "maxItems": 20 }
+      }
+    },
+    "extensions": { "type": "object" }
+  }
+}

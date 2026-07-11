@@ -50,6 +50,11 @@ These sources inform the methodology but do not prescribe a vendor-specific runt
    - Use simple agents for routine work, route complex cases to more capable or multi-agent workflows, and add architectural complexity only when measurement shows value.
    - Apply it here by keeping portfolio and organization control loops thin and routing bounded exceptions rather than making every task multi-agent.
 
+12. Current primary prompt-injection guidance, accessed July 2026:
+   - [OpenAI, *Understanding prompt injections*](https://openai.com/safety/prompt-injections/) explains that third-party content can inject malicious instructions and recommends layered protections, narrow access, explicit instructions, and confirmation for consequential actions.
+   - [Anthropic, *Trustworthy agents in practice*](https://www.anthropic.com/research/trustworthy-agents), April 2026, explains that autonomy, harnesses, tools, permissions, and environments jointly determine risk and that no single prompt-injection defense is sufficient.
+   - Apply it here by separating instruction authority from untrusted data, restricting source-to-sink paths, validating consequential destinations, testing injections, and preserving human gates.
+
 ## Design implications
 
 - **A prompt is not a loop.** The loop also needs a trigger, state, verifier, boundaries, and exit.

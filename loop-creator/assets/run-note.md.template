@@ -9,6 +9,7 @@
 - **Model / reasoning:** [route, model, reasoning level, escalation if any]
 - **Cadence decision:** [next class/trigger/time and reason]
 - **Autonomy / approvals:** [routine actions completed automatically; approval gate reached or `none`]
+- **Trust / safety:** [untrusted sources processed, prohibited-action hits, proposal hash, or `none`]
 - **Status:** `succeeded` | `no-op` | `blocked` | `failed` | `escalated`
 - **Decision / next action:** [specific owner or next run action]
 

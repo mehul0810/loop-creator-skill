@@ -61,6 +61,19 @@ Set:
 
 Track model/route, reasoning level, tokens or credits, latency, retries, verifier result, rework, and human escalation. Do not compare token counts across providers as if they were identical costs; use the provider’s current billing or credit model.
 
+## Set the first budget
+
+Estimate from a representative pilot rather than guessing from a marketing context limit:
+
+```text
+monthly variable cost = eligible runs per month
+                      × average attempts per run
+                      × observed provider cost or credits per attempt
+                      + reserved incident/verification capacity
+```
+
+When direct cost is unavailable, record tokens or credits and label the estimate provisional. Include a low, expected, and high case using observed context size, output size, retries, and model escalation frequency. Compare the routed design with a single-model baseline on the same representative items; adopt routing only when savings or quality justify its complexity.
+
 ## Routing policy output
 
 Write a deterministic table with task class, minimum risk tier, preferred model class, reasoning depth, context bundle, verifier, budget, escalation condition, and fallback. Include current supported model names only after version-aware research, and date the mapping so it can be refreshed when models or pricing change.

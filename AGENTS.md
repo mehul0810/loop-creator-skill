@@ -35,6 +35,8 @@ Run:
 
 ```bash
 python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/quick_validate.py" loop-creator
+python3 -m unittest discover -s tests -v
+python3 loop-creator/scripts/validate_loop.py tests/fixtures/valid/LOOP.md --state tests/fixtures/valid/state.json
 git diff --check
 ```
 
@@ -45,6 +47,8 @@ Also verify:
 - no placeholder `TODO` text remains;
 - new operational claims include dated primary sources;
 - meaningful changes have a representative forward-test when safe.
+- every new or changed state field remains compatible with `assets/loop-state.schema.json` or includes an explicit schema migration;
+- security-sensitive changes retain untrusted-input, approval-boundary, and kill-switch regression coverage.
 
 ## Git and publishing
 

@@ -50,11 +50,20 @@
 ## Autonomy and authority
 
 - **Target:** [approximately 90–95% of routine steps, with definition]
+- **Measurement:** [eligible unattended completions / eligible runs, observation window, exclusions, and guardrails]
 - **Automatic:** [reversible in-scope actions]
 - **Approval required:** [critical/destructive/external actions]
 - **Prohibited:** [actions the loop must never attempt]
 - **Approval delivery:** [who, where, packet contents, timeout behavior]
+- **Pause / resume:** [durable pending state, authenticated decision, proposal binding, revalidation, and idempotency]
 - **Kill switch:** [how the owner stops future or current execution]
+
+## Trust and lifecycle
+
+- **Instruction authorities / untrusted sources:** [who may direct the loop and which inputs remain data]
+- **Source-to-sink controls:** [tool, destination, disclosure, and approval restrictions]
+- **Promotion / demotion:** [evidence thresholds and safety/quality regression triggers]
+- **Review / retirement:** [cadence, change triggers, shutdown, evidence retention, and access revocation]
 
 ## Pilot and rollout
 
