@@ -11,6 +11,7 @@ It supports:
 - per-run, product, period, and portfolio token/cost budgets;
 - independent verification, compact state, stop rules, and human approval packets.
 - a canonical extensible state schema, measurable autonomy, trust boundaries, and loop lifecycle controls;
+- a checksummed schema manifest so runtimes can detect copied-contract drift before they rely on it;
 - concrete approval/cadence adapters, worked examples, and deterministic contract validation.
 
 ## Repository structure
@@ -108,6 +109,8 @@ python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/quick_
 ```
 
 The expected result is `Skill is valid!`.
+
+The canonical state schema is `loop-creator/assets/loop-state.schema.json`. Its adjacent `schema-manifest.json` pins the schema version and checksum; downstream runtimes should record that provenance and fail validation when it drifts.
 
 Validate a filled contract and optional JSON state:
 

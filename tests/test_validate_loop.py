@@ -47,6 +47,16 @@ class ValidateLoopTests(unittest.TestCase):
                 )
                 self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
 
+    def test_schema_manifest_matches_the_canonical_contract(self) -> None:
+        result = subprocess.run(
+            [sys.executable, str(SCRIPT), str(FIXTURES / "valid" / "LOOP.md")],
+            check=False,
+            capture_output=True,
+            text=True,
+        )
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertNotIn("FAIL schema manifest", result.stdout)
+
 
 if __name__ == "__main__":
     unittest.main()

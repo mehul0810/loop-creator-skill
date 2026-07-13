@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/mehul0810/loop-creator-skill/loop-state.schema.json",
+  "$id": "https://github.com/mehul0810/loop-creator-skill/loop-creator/assets/loop-state.schema.json",
   "title": "Loop Creator State",
   "type": "object",
   "additionalProperties": false,

@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import sys
@@ -157,6 +158,29 @@ def state_errors(path: Path, schema_path: Path) -> list[str]:
     return schema_errors(state, schema)
 
 
+def schema_manifest_errors(schema_path: Path) -> list[str]:
+    manifest_path = schema_path.with_name("schema-manifest.json")
+    if not manifest_path.is_file():
+        return [f"schema manifest not found: {manifest_path}"]
+    try:
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        return [f"schema manifest has invalid JSON at line {exc.lineno}, column {exc.colno}: {exc.msg}"]
+
+    errors: list[str] = []
+    expected_path = "loop-creator/assets/loop-state.schema.json"
+    if manifest.get("schema_name") != "loop-state":
+        errors.append("schema manifest must name loop-state")
+    if manifest.get("schema_version") != "1.0":
+        errors.append("schema manifest schema_version must be 1.0")
+    if manifest.get("path") != expected_path:
+        errors.append(f"schema manifest path must be {expected_path}")
+    digest = hashlib.sha256(schema_path.read_bytes()).hexdigest()
+    if manifest.get("sha256") != digest:
+        errors.append("schema manifest checksum does not match the schema")
+    return errors
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("contract", type=Path, help="Filled LOOP.md contract")
@@ -173,14 +197,20 @@ def main() -> int:
     if not args.contract.is_file():
         print(f"ERROR contract not found: {args.contract}", file=sys.stderr)
         return 2
+    if not args.schema.is_file():
+        print(f"ERROR schema not found: {args.schema}", file=sys.stderr)
+        return 2
+    manifest_errors = schema_manifest_errors(args.schema)
+    if manifest_errors:
+        print("FAIL schema manifest")
+        for error in manifest_errors:
+            print(f"  - {error}")
+        return 1
     checks.append((str(args.contract), contract_errors(args.contract)))
 
     if args.state:
         if not args.state.is_file():
             print(f"ERROR state not found: {args.state}", file=sys.stderr)
-            return 2
-        if not args.schema.is_file():
-            print(f"ERROR schema not found: {args.schema}", file=sys.stderr)
             return 2
         checks.append((str(args.state), state_errors(args.state, args.schema)))
 

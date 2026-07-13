@@ -1,0 +1,21 @@
+name: Validate Skill
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python3 -m unittest discover -s tests -v
+      - run: python3 loop-creator/scripts/validate_loop.py tests/fixtures/valid/LOOP.md --state loop-creator/assets/loop-state.example.json
+      - run: git diff --check
