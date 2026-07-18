@@ -72,7 +72,51 @@
         "reasoning": { "type": ["string", "null"] },
         "attempts": { "type": "integer", "minimum": 0 },
         "tokens_or_credits": { "type": ["number", "null"], "minimum": 0 },
+        "usage": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "input_tokens": { "type": ["number", "null"], "minimum": 0 },
+            "cached_input_tokens": { "type": ["number", "null"], "minimum": 0 },
+            "output_tokens": { "type": ["number", "null"], "minimum": 0 },
+            "context_tokens_peak": { "type": ["number", "null"], "minimum": 0 },
+            "tool_calls": { "type": ["number", "null"], "minimum": 0 },
+            "retry_count": { "type": ["number", "null"], "minimum": 0 }
+          }
+        },
         "cost": { "type": ["number", "null"], "minimum": 0 }
+      }
+    },
+    "lineage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["observation_id", "learning_candidate_id", "decision_id", "action_id", "verification_id", "artifact_pointers", "verification_window", "outcome"],
+      "properties": {
+        "observation_id": { "type": ["string", "null"] },
+        "learning_candidate_id": { "type": ["string", "null"] },
+        "decision_id": { "type": ["string", "null"] },
+        "action_id": { "type": ["string", "null"] },
+        "verification_id": { "type": ["string", "null"] },
+        "artifact_pointers": { "type": "array", "items": { "type": "string", "minLength": 1 }, "maxItems": 20 },
+        "verification_window": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["ends_at", "status"],
+          "properties": {
+            "ends_at": { "type": ["string", "null"], "format": "date-time" },
+            "status": { "enum": ["not_set", "pending", "ready", "complete"] }
+          }
+        },
+        "outcome": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "measured_at", "summary"],
+          "properties": {
+            "status": { "enum": ["pending", "met", "missed", "inconclusive", "not_applicable"] },
+            "measured_at": { "type": ["string", "null"], "format": "date-time" },
+            "summary": { "type": ["string", "null"], "maxLength": 500 }
+          }
+        }
       }
     },
     "approval": {

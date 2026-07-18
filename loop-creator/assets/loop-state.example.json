@@ -32,7 +32,32 @@
     "reasoning": "low",
     "attempts": 0,
     "tokens_or_credits": null,
+    "usage": {
+      "input_tokens": null,
+      "cached_input_tokens": null,
+      "output_tokens": null,
+      "context_tokens_peak": null,
+      "tool_calls": null,
+      "retry_count": null
+    },
     "cost": null
+  },
+  "lineage": {
+    "observation_id": "obs-ci-run-123",
+    "learning_candidate_id": null,
+    "decision_id": null,
+    "action_id": "run-123-job-test",
+    "verification_id": "verify-run-123",
+    "artifact_pointers": ["https://example.invalid/runs/123"],
+    "verification_window": {
+      "ends_at": null,
+      "status": "ready"
+    },
+    "outcome": {
+      "status": "pending",
+      "measured_at": null,
+      "summary": null
+    }
   },
   "approval": {
     "state": "not_required",

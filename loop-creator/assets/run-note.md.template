@@ -5,6 +5,8 @@
 - **Intent:** [one-sentence outcome]
 - **Action:** [bounded work performed]
 - **Evidence:** [command output, artifact link, state check, or review result]
+- **Lineage:** [observation, decision/action, verification, learning candidate, and durable artifact IDs or pointers]
+- **Outcome window:** [metric, baseline/target if useful, review time, and current status]
 - **Limits used:** [iterations, time, tokens/cost if tracked]
 - **Model / reasoning:** [route, model, reasoning level, escalation if any]
 - **Cadence decision:** [next class/trigger/time and reason]

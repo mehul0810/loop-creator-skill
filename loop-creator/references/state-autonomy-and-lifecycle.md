@@ -12,11 +12,14 @@ Copy `assets/loop-state.example.json` for JSON storage and validate it against `
 - progress: attempt, failure fingerprint, last action, evidence, decision, and next action;
 - cadence: class, next time or trigger, reason, no-change streak, and remaining budget;
 - routing: route, model, reasoning depth, attempts, and observable token/cost use;
+- lineage: observation, learning candidate, decision, action, verification, durable artifact pointers, verification window, and measured outcome;
 - approval: state, requested action, owner, delivery surface, request identifier, timeout, decision, and decision actor;
 - safety: trust classification, policy version, kill-switch state, and prohibited-action hits;
 - extensions: setup-specific values that do not redefine core semantics.
 
 Write state atomically when possible. Never store secrets, chain-of-thought, full transcripts, or large source payloads. Store pointers and evidence hashes instead. Reject unknown schema versions unless a migration is defined.
+
+Feedback and proactive loops must preserve lineage across runs. Do not treat issue creation or a passing implementation check as the final learning outcome. Record the decision/action pointer, define when the result can be evaluated, then close the loop as `met`, `missed`, `inconclusive`, or `not_applicable`. Promote a reusable lesson only after that result is reviewed; route product-specific learning to product docs and cross-product learning to the owning shared contract.
 
 ## Measure autonomy
 
